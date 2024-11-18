@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "Netflix History Tracker",
+    "version": "1.0",
+    "description": "追蹤 Netflix 觀看紀錄",
+    "permissions": [
+      "storage",
+      "tabs",
+      "activeTab"
+    ],
+    "host_permissions": [
+      "https://www.netflix.com/*",
+      "https://*.nflxso.net/*",
+      "https://*.nflxext.com/*"
+    ],
+    "icons": {
+      "16": "icons/netflix_history_16.png",
+      "32": "icons/netflix_history_32.png",
+      "48": "icons/netflix_history_48.png",
+      "128": "icons/netflix_history_128.png"
+    },
+    "action": {
+      "default_icon": {
+        "16": "icons/netflix_history_16.png",
+        "32": "icons/netflix_history_32.png",
+        "48": "icons/netflix_history_48.png",
+        "128": "icons/netflix_history_128.png"
+      },
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://www.netflix.com/*"],
+        "js": ["content.js"]
+      }
+    ]
+  }
